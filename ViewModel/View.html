@@ -88,6 +88,15 @@
 
         // http://www.html5rocks.com/en/tutorials/pointerlock/intro/
 
+        var material = new THREE.MeshLambertMaterial({
+            color: 0x0000ff,
+            specular: 0x222222,
+            shininess: 10,
+            shading: THREE.SmoothShading
+        });
+
+
+
         var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document ||
             'webkitPointerLockElement' in document;
 
@@ -199,11 +208,20 @@
             scene = new THREE.Scene();
             scene.fog = new THREE.Fog(0xffffff, 0, 750);
 
-            var ambient = new THREE.AmbientLight(0x909090);
+            var ambient = new THREE.AmbientLight(0xaaaaaa);
             scene.add(ambient);
+            // scene.add( new THREE.HemisphereLight( 0x444444, 0x111122 ) );
+
+
+            // var spotLight = new THREE.SpotLight(0xffffff);
+            // spotLight.position.set(1000, 1000, 1000);
+            // spotLight.castShadow = true;
+            // spotLight.intensity = 0.2;
+            // scene.add(spotLight);
+
 
             var directionalLight = new THREE.DirectionalLight(0xffffff);
-            directionalLight.position.set(0, 0, 1);
+            directionalLight.position.set(0, 0, 0);
             scene.add(directionalLight);
 
             controls = new THREE.PointerLockControls(camera);
@@ -280,28 +298,7 @@
             geometry = new THREE.PlaneGeometry(2000, 2000, 100, 100);
             geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
 
-            //  for ( var i = 0, l = geometry.vertices.length; i < l; i ++ ) {
-            //
-            //        var vertex = geometry.vertices[ i ];
-            //        vertex.x += Math.random() * 20 - 10;
-            //        vertex.y += Math.random() * 2;
-            //       vertex.z += Math.random() * 20 - 10;
 
-            //    }
-
-            //    for ( var i = 0, l = geometry.faces.length; i < l; i ++ ) {
-            //
-            //        var face = geometry.faces[ i ];
-            //        face.vertexColors[ 0 ] = new THREE.Color().setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
-            //       face.vertexColors[ 1 ] = new THREE.Color().setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
-            //       face.vertexColors[ 2 ] = new THREE.Color().setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
-
-            //   }
-
-            //  material = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
-            material = new THREE.MeshFaceMaterial([new THREE.MeshBasicMaterial({
-                map: THREE.ImageUtils.loadTexture('cncrt.jpg')
-            })]);
             mesh = new THREE.Mesh(geometry, material);
             scene.add(mesh);
 
@@ -310,12 +307,9 @@
 
             var manager = new THREE.LoadingManager();
             manager.onProgress = function (item, loaded, total) {
-
                 console.log(item, loaded, total);
-
             };
 
-            var texture = new THREE.Texture();
 
             var onProgress = function (xhr) {
                 if (xhr.lengthComputable) {
@@ -325,15 +319,6 @@
             };
 
             var onError = function (xhr) {};
-
-
-            var loader = new THREE.ImageLoader(manager);
-            loader.load('cncrt.jpg', function (image) {
-
-                texture.image = image;
-                texture.needsUpdate = true;
-
-            });
 
             // model
 
@@ -345,7 +330,7 @@
 
                     if (child instanceof THREE.Mesh) {
 
-                        child.material.map = texture;
+                        child.material = material
 
                     }
 
@@ -387,10 +372,15 @@
 
             //
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = new THREE.WebGLRenderer({
+                antialias: false
+            });
             renderer.setClearColor(0xffffff);
+            renderer.gammaInput = true;
+            renderer.gammaOutput = true;
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);
+
             document.body.appendChild(renderer.domElement);
 
             //
