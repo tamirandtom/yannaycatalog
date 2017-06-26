@@ -1,0 +1,135 @@
+@import 'fonts/fonts.css';
+::-webkit-scrollbar {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #fff;
+  border: 1px solid #33f
+}
+
+::-webkit-scrollbar-track {
+  background-color: #FFF;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #FFF;
+  border: 1px solid #33f
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border: 1px solid #33f
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #fff;
+  border: 1px solid #33f
+}
+
+::-webkit-resizer {
+  background-color: #fff;
+  border: 1px solid #33f
+}
+
+::selection {
+  background: #33f;
+  /* WebKit/Blink Browsers */
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #33f;
+  /* Gecko Browsers */
+  color: #fff;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 17px;
+  color: #33f;
+  background: #fff;
+  font-family: 'Simpler', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+img {
+  max-height: 400px;
+  max-width: 40vw;
+}
+
+.maintitle1 {
+  font-size: 30px;
+  font-family: 'Simpler';
+  font-weight:700;
+  
+  direction: rtl;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+.smallname {
+  font-size: 15px;
+  font-family: 'Simpler';
+  line-height: 150%;
+  font-weight:700;
+  
+  letter-spacing: 6px;
+}
+
+b {
+  font-size: 0.9em;
+}
+
+a {
+  text-decoration: none;
+  color: #33f;
+}
+
+#maintitle1eng {
+  text-align: left;
+  direction: ltr;
+  font-size: 30px;
+  font-family: 'Simpler';
+  font-weight:700;
+  line-height: 100%;
+  padding-bottom: 14px;
+  letter-spacing: 0px;
+}
+
+#fr-wrapper {
+  letter-spacing: 2px;
+  border: 1px solid #33f;
+  text-align: right;
+  line-height: 150%;
+  font-size: 12px;
+  line-height: 150%;
+  width: 32vw;
+  min-width: 550px;
+  padding: 0px 14px 14px 14px;
+}
+
+#fr {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+}
+
+.floater {
+  border: 1px solid #33f;
+  padding: 14px;
+  margin: 14px 0px 0px 0px;
+  text-align: right;
+  direction: rtl;
+}
+
+.floater:hover {
+  background: #33f;
+  color: #fff;
+}

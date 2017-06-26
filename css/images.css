@@ -1,0 +1,59 @@
+/*
+CSS file created with:Instantblueprint - Create a web project framework in seconds.
+http://instantblueprint.com
+Project: Davidyannay
+File: css/style.css
+Last edited: April 7, 2015, 9:13 am
+*/
+
+/*  Main  */
+
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+@import 'fonts/fonts.css';
+
+::-webkit-scrollbar              { background-color: #fff;}
+::-webkit-scrollbar-button       { background-color: #fff; border:1px solid #000}
+::-webkit-scrollbar-track        { background-color: #FFF;}
+::-webkit-scrollbar-track-piece  { background-color: #FFF;border:1px solid #000 }
+::-webkit-scrollbar-thumb        { background-color: #fff; border:1px solid #000}
+::-webkit-scrollbar-corner       {background-color: #fff; border:1px solid #000}
+::-webkit-resizer                { background-color: #fff;  border:1px solid #000}
+
+
+::selection {
+  background: #e5e5e5; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #e5e5e5; /* Gecko Browsers */
+}
+.tocscroll{}
+
+
+
+
+
+#container{position:absolute; top:10px; width:95%; height:96%;left:10px;}
+.item {float:left; margin: 0px 10px 10px 0px; position:relative; }
+.item:hover span{opacity:1;}
+.item span{opacity:0;}
+.item:hover .infodiv{opacity:1;}
+.item .infodiv{opacity:0;}
+
+
+.item .infodiv{position:absolute;top:10px;left:10px; width:calc(100% - 20px); height:calc(100% - 50px); padding:10px; background:#fff;z-index:20;overflow-y:scroll;line-height:144%;direction:rtl;text-align:right;font-size:23px;}
+.item span {display:block; direction:rtl;text-align:right;line-height:160%;font-size:15px;}
+
+* {      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;}
+body{
+
+  font-family: 'wet2',
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+}
+
+img {max-height:500px;}
+#fr {text-align:right; line-height:150%; padding-left:30px;position:absolute;z-index:20;}
